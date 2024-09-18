@@ -1,11 +1,9 @@
 # cp2024 計算機程式作業網站
 
-template 網站: https://mde.tw/cp2024_hw (請完成設定後刪除這一行)
+41323227
 
-使用者: 請填入學號
+https://jubilant-computing-machine-wrgrrgg6qr4qcv55q.github.dev/
 
-作業網站: 請填入此網站的網址
-
-作業倉儲: 請填入此網站的倉儲連結
+https://github.com/mdecp2024/hw-S41323227
 
 其他資訊: 請自行填入其他相關資料
