@@ -2,7 +2,7 @@
 
 41323227
 
-https://jubilant-computing-machine-wrgrrgg6qr4qcv55q.github.dev/
+https://mdecp2024.github.io/hw-S41323227/content/index.html
 
 https://github.com/mdecp2024/hw-S41323227
 
