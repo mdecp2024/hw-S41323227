@@ -37,9 +37,99 @@
 <p>完成上述流程整理後, 請將 HW1 自評分數輸入 cp2024 自評表單中.</p>
 <h2>HW 1 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 Topic 1 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<p>W7</p>
-<h3>w10</h3>
+<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 Topic 1 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p><h3>w11</h3>
+<p></p>
+<p>第一題</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import math
+
+# 10x10 的字元區域
+width = 10
+height = 10
+
+# 圓心 (5, 5) 以及半徑 r，這裡選擇半徑為 3
+center_x = 5
+center_y = 5
+radius = 3
+
+# 繪製圓形
+for y in range(height):
+    for x in range(width):
+        # 計算當前點與圓心的距離
+        distance = math.sqrt((x - center_x) ** 2 + (y - center_y) ** 2)
+        # 如果距離小於等於半徑，則打印 *
+        if distance &lt;= radius:
+            print('*', end='')
+        else:
+            print(' ', end='')
+    print()  # 換行
+</pre>
+<p><br/><br/></p>
+<p><span>第二題</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+import math
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width = 400, height = 400)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+# 每一格的 pixel 數
+gs = 20
+
+# gs*tc = canvas width and height
+
+ctx = canvas.getContext("2d")
+
+def dRect(lux, luy, w, h, s=1, c='#ff0000'):
+    ctx.lineWidth = s
+    ctx.strokeStyle = c
+    ctx.beginPath()
+    ctx.rect(lux, luy, w, h)
+    ctx.stroke()
+    
+def grid(width, height, grid_pix):
+    # x 方向共 width 格
+    # y 方向共 height 格
+    # grid_pix, 每一個的 pixel 點數
+    # 利用迴圈與座標增量繪圖
+    for i in range(width):
+        for j in range(height):
+            dRect(i * grid_pix, j * grid_pix, grid_pix, grid_pix, 1, "lightgrey")
+
+def fill(x, y, color):
+    ctx.fillStyle = color
+    ctx.fillRect(x - 1, y - 1, gs, gs)
+
+# 繪製圓形的邏輯
+def draw_circle(center_x, center_y, radius):
+    for i in range(10):  # 設定 10x10 網格
+        for j in range(10):
+            # 計算每個格子中心的 (x, y) 座標
+            x_center = (i * gs) + gs / 2
+            y_center = (j * gs) + gs / 2
+            # 計算每個格子與圓心的距離
+            distance = math.sqrt((x_center - center_x) ** 2 + (y_center - center_y) ** 2)
+            # 如果距離小於等於半徑，填充這個格子
+            if distance &lt;= radius:
+                fill(i * gs, j * gs, "black")
+
+# 繪製 10x10 網格
+grid(10, 10, gs)
+
+# 圓心設在 (5, 5)，半徑設為 5
+center_x = 5 * gs  # 圓心的 x 座標
+center_y = 5 * gs  # 圓心的 y 座標
+radius = 5 * gs  # 半徑
+
+# 繪製圓形
+draw_circle(center_x, center_y, radius)</pre>
+<p><span> </span></p>
+<p><span>第三題</span></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/_W-W-JMcggg" width="560"></iframe></p>
+<p><span>這次的作業雖然都是靠ChatGPT，但是做完作業後我還是有詳細看這次做出來的程式</span></p>
+<p><span></span><br/><br/></p>
+<p><span></span></p><h3>w10</h3>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/ZwiK6-mRz7Y" width="560"></iframe></p>
 <ol>
 <li>變數和函數命名（snake_case）<br/>變數和函數名稱應使用小寫字母，並以底線分隔單詞（這稱為 snake_case）。<br/>2. 類別命名（CamelCase）<br/>類別名稱應使用首字母大寫，並使用駝峰式命名（這稱為 CamelCase）。每個單詞的首字母都要大寫，不使用底線。<br/>3. 常數命名（UPPERCASE_SNAKE_CASE）<br/>常數名稱應該使用全大寫字母，並使用底線分隔單詞（這稱為 UPPERCASE_SNAKE_CASE）。<br/>4. 模組和包命名（lowercase）<br/>模組和包名稱應該是小寫字母，並且避免使用底線（如果不必要的話）。當有多個單詞時，使用小寫字母並用底線分隔。<br/>5. 私有變數命名（單底線前綴）<br/>如果某個變數或方法不應該被外部使用（即設為私有），可以在變數名稱或方法名稱前加上單個底線 _，表示這是內部屬性。<br/>6. 特殊方法命名（__double_underscore__）<br/>Python 中有一些特殊方法，通常是以雙底線包圍的名稱，如 __init__、__str__ 等。這些方法有特殊的用途，通常是 Python 中的內建方法。<br/>7. 函數與變數命名的長度<br/>一般來說，變數名和函數名應該簡短而有意義，避免使用過長或過於簡單的名稱。通常變數和函數的名稱應該能夠清楚表達它的用途。<br/>8. 註解與文檔字串（Docstring）<br/>在 Python 中，函數和類別的開頭應使用文檔字串（docstring）來描述它們的作用和用途。文檔字串應使用三個雙引號 """ 或三個單引號 ''' 包圍。<iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/qpbxk3oQ2kQ" width="560"></iframe><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/VLZwyapEbyI" width="560"></iframe><span>雖然程式還不太懂，但是這個作業讓我完全學會這五種程式執行方法了</span></li>
