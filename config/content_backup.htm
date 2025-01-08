@@ -1101,78 +1101,9 @@ if __name__ == "__main__":
 </script>
 </p>
 <h1>final</h1>
-<h2>1</h2>
 <h3>第一題</h3>
 <p><a href="https://mdecp2024.github.io/hw-S41323227/content/Brython.html?src=https://gist.githubusercontent.com/S41323227/0859cfe916f3b253ac30a215f75fa914/raw/f2fc7483d58145a093c0ad63fb7a83cd134e39a4/final.1">三個數字計算</a></p>
-<p></p>
-<div id="brython_div1"></div>
-<!-- 導入 brython 程式庫 -->
-<p>
-<script src="/static/brython.js"></script>
-<script src="/static/brython_stdlib.js"></script>
-</p>
-<!-- 啟動 Brython -->
-<p>
-<script>
-window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
-}
-</script>
-<script type="text/python3">
-def calculate(f1, f2, n1, n2, n3):
-    def apply_operator(op, a, b):
-        if op == "+":
-            return a + b
-        elif op == "-":
-            return a - b
-        elif op == "*":
-            return a * b
-        elif op == "/":
-            if b != 0:
-                return a / b
-            else:
-                return "錯誤：不能除以0！"
-        else:
-            return "錯誤：操作符不支援！"
-
-    # 優先處理乘除操作
-    if f1 in "*/" and f2 in "+-":
-        a1 = apply_operator(f1, n1, n2)
-        if isinstance(a1, str):  # 檢查是否發生錯誤
-            return a1
-        a2 = apply_operator(f2, a1, n3)
-    
-    elif f2 in "*/" and f1 in "+-":
-        a1 = apply_operator(f2, n2, n3)
-        if isinstance(a1, str):  # 檢查是否發生錯誤
-            return a1
-        a2 = apply_operator(f1, n1, a1)
-
-    else:
-        # 按順序從左到右計算
-        a1 = apply_operator(f1, n1, n2)
-        if isinstance(a1, str):  # 檢查是否發生錯誤
-            return a1
-        a2 = apply_operator(f2, a1, n3)
-    
-    return a2
-
-
-# 主程式
-if __name__ == "__main__":
-    try:
-        n1 = float(input("請輸入第一個數字："))
-        f1 = input("請輸入第一步操作符號（+ - * /）：")
-        n2 = float(input("請輸入第二個數字："))
-        f2 = input("請輸入第二步操作符號（+ - * /）：")
-        n3 = float(input("請輸入第三個數字："))
-        
-        A = calculate(f1, f2, n1, n2, n3)
-        print(f"計算結果：{n1} {f1} {n2} {f2} {n3} = {A}")
-    except ValueError:
-        print("錯誤：請輸入有效的數字！")
-</script>
-</p><h1>Final Report</h1>
+<p></p><h1>Final Report</h1>
 <p>期末口頭與書面專題報告 (20%)</p>
 <p>期末口頭專題報告影片:</p>
 <p style="padding-left: 30px;">......</p>
